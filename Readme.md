@@ -217,7 +217,7 @@ To run the project, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/html-bootstrap-starter.git
+   git clone https://github.com/alamincoders/html-bootstrap-starter.git
    ```
 
 2. Navigate to the project directory:
