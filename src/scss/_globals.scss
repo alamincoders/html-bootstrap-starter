@@ -1,0 +1,268 @@
+// Base Variables
+:root {
+  --base-size: 4px;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 20px;
+}
+
+// Dynamic Color Utilities
+@mixin generate-color-utilities($property, $prefix) {
+  .#{$prefix}-#{$property}-primary {
+    #{$property}: var(--primary-color);
+  }
+  .#{$prefix}-#{$property}-secondary {
+    #{$property}: var(--secondary-color);
+  }
+  .#{$prefix}-#{$property}-success {
+    #{$property}: var(--success-color);
+  }
+  .#{$prefix}-#{$property}-danger {
+    #{$property}: var(--danger-color);
+  }
+  .#{$prefix}-#{$property}-warning {
+    #{$property}: var(--warning-color);
+  }
+  .#{$prefix}-#{$property}-info {
+    #{$property}: var(--info-color);
+  }
+  .#{$prefix}-#{$property}-light {
+    #{$property}: var(--light-color);
+  }
+  .#{$prefix}-#{$property}-dark {
+    #{$property}: var(--dark-color);
+  }
+}
+
+// Apply color utilities with new prefix
+@include generate-color-utilities(color, "ut"); // ut-color-primary, etc.
+@include generate-color-utilities(bg, "ut"); // ut-bg-primary, etc.
+@include generate-color-utilities(border, "ut"); // ut-border-primary, etc.
+
+// Dynamic Spacing Utilities
+@mixin generate-spacing($property, $prefix) {
+  @for $i from 0 through 20 {
+    .#{$prefix}-#{$property}-#{$i} {
+      #{$property}: calc(var(--base-size) * #{$i});
+    }
+  }
+}
+
+// Margin and Padding Utilities (individual sides)
+@include generate-spacing(m, "ut"); // ut-m-0 to ut-m-20
+@include generate-spacing(mt, "ut"); // ut-mt-0 to ut-mt-20
+@include generate-spacing(mb, "ut"); // ut-mb-0 to ut-mb-20
+@include generate-spacing(ml, "ut"); // ut-ml-0 to ut-ml-20
+@include generate-spacing(mr, "ut"); // ut-mr-0 to ut-mr-20
+@include generate-spacing(p, "ut"); // ut-p-0 to ut-p-20
+@include generate-spacing(pt, "ut"); // ut-pt-0 to ut-pt-20
+@include generate-spacing(pb, "ut"); // ut-pb-0 to ut-pb-20
+@include generate-spacing(pl, "ut"); // ut-pl-0 to ut-pl-20
+@include generate-spacing(pr, "ut"); // ut-pr-0 to ut-pr-20
+
+// Combined Margin and Padding Utilities (horizontal and vertical)
+@mixin generate-combined-spacing($property, $prefix, $x, $y) {
+  @for $i from 0 through 20 {
+    .#{$prefix}-#{$property}#{$x}-#{$property}#{$y}-#{$i} {
+      #{$property}-#{$x}: calc(var(--base-size) * #{$i});
+      #{$property}-#{$y}: calc(var(--base-size) * #{$i});
+    }
+  }
+}
+
+// Combined Utilities: Horizontal and Vertical
+@include generate-combined-spacing(m, "ut", x, y); // ut-mx-my-0 to ut-mx-my-20
+@include generate-combined-spacing(p, "ut", x, y); // ut-px-py-0 to ut-px-py-20
+
+// Responsive Spacing Utilities using clamp()
+@mixin generate-responsive-spacing($property, $prefix) {
+  @for $i from 0 through 10 {
+    .#{$prefix}-#{$property}-responsive-#{$i} {
+      #{$property}: clamp(
+        calc(var(--base-size) * #{$i}),
+        2vw,
+        calc(var(--base-size) * (#{$i} + 2))
+      );
+    }
+  }
+}
+
+@include generate-responsive-spacing(
+  m,
+  "ut"
+); // ut-m-responsive-0 to ut-m-responsive-10
+@include generate-responsive-spacing(
+  p,
+  "ut"
+); // ut-p-responsive-0 to ut-p-responsive-10
+
+// Flexbox Utilities
+.ut-flex {
+  display: flex;
+}
+.ut-flex-row {
+  flex-direction: row;
+}
+.ut-flex-col {
+  flex-direction: column;
+}
+.ut-justify-center {
+  justify-content: center;
+}
+.ut-justify-between {
+  justify-content: space-between;
+}
+.ut-items-center {
+  align-items: center;
+}
+.ut-items-start {
+  align-items: flex-start;
+}
+.ut-items-end {
+  align-items: flex-end;
+}
+.ut-gap-1 {
+  gap: calc(var(--base-size) * 1);
+}
+.ut-gap-2 {
+  gap: calc(var(--base-size) * 2);
+}
+.ut-gap-3 {
+  gap: calc(var(--base-size) * 3);
+}
+
+// Typography Utilities
+.ut-font-bold {
+  font-weight: bold;
+}
+.ut-font-light {
+  font-weight: 300;
+}
+.ut-font-medium {
+  font-weight: 500;
+}
+.ut-text-left {
+  text-align: left;
+}
+.ut-text-center {
+  text-align: center;
+}
+.ut-text-right {
+  text-align: right;
+}
+.ut-text-uppercase {
+  text-transform: uppercase;
+}
+.ut-text-lowercase {
+  text-transform: lowercase;
+}
+.ut-text-capitalize {
+  text-transform: capitalize;
+}
+
+// Dynamic Font Size Utilities using clamp()
+@mixin generate-text-size($scale, $prefix) {
+  @for $i from 1 through 10 {
+    .#{$prefix}-text-size-#{$i} {
+      font-size: clamp(0.8rem, #{$scale} * #{$i}, 2.5rem);
+    }
+  }
+}
+
+@include generate-text-size(0.25rem, "ut"); // ut-text-size-1 to ut-text-size-10
+
+// Width & Height Utilities
+.ut-w-full {
+  width: 100%;
+}
+.ut-w-auto {
+  width: auto;
+}
+.ut-h-full {
+  height: 100%;
+}
+.ut-h-auto {
+  height: auto;
+}
+
+// Border Radius Utilities
+@mixin generate-border-radius($prefix) {
+  @for $i from 0 through 10 {
+    .#{$prefix}-rounded-#{$i} {
+      border-radius: calc(var(--base-size) * #{$i});
+    }
+  }
+}
+@include generate-border-radius("ut");
+
+// Shadow Utilities
+.ut-shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.ut-shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.ut-shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+// Display Utilities
+.ut-block {
+  display: block;
+}
+.ut-inline-block {
+  display: inline-block;
+}
+.ut-hidden {
+  display: none;
+}
+.ut-flex {
+  display: flex;
+}
+.ut-inline-flex {
+  display: inline-flex;
+}
+
+// Overflow Utilities
+.ut-overflow-hidden {
+  overflow: hidden;
+}
+.ut-overflow-auto {
+  overflow: auto;
+}
+.ut-overflow-scroll {
+  overflow: scroll;
+}
+
+// Cursor Utilities
+.ut-cursor-pointer {
+  cursor: pointer;
+}
+.ut-cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+// Opacity Utilities
+.ut-opacity-100 {
+  opacity: 1;
+}
+.ut-opacity-75 {
+  opacity: 0.75;
+}
+.ut-opacity-50 {
+  opacity: 0.5;
+}
+.ut-opacity-25 {
+  opacity: 0.25;
+}
+.ut-opacity-0 {
+  opacity: 0;
+}
