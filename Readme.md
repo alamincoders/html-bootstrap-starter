@@ -6,24 +6,29 @@ Welcome to the HTML Bootstrap Starter project! This template provides a structur
 
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-- [Folder Structure](#folder-structure)
 - [Custom Utility Classes](#custom-utility-classes)
   - [Color Utilities](#color-utilities)
   - [Spacing Utilities](#spacing-utilities)
-  - [Flexbox Utilities](#flexbox-utilities)
+  - [Flex-box Utilities](#flexbox-utilities)
   - [Typography Utilities](#typography-utilities)
   - [Width & Height Utilities](#width--height-utilities)
   - [Responsive Utilities](#responsive-utilities)
 - [Usage Examples](#usage-examples)
 - [Full List of Utilities](#full-list-of-utilities)
-- [Customization](#customization)
+- [How to Run the Project](#how-to-run-the-project)
 - [Contributing](#contributing)
 
 ---
 
 ## Overview
 
-This project is designed to help developers quickly create responsive web applications using Bootstrap while maintaining a consistent style with custom utility classes. The custom classes are prefixed with `ut-` to avoid conflicts with Bootstrap's existing classes.
+This project is designed to help developers quickly create responsive web applications using:
+
+![HTML](https://simpleicons.org/icons/html5.svg) **HTML**  
+![SCSS](https://simpleicons.org/icons/sass.svg) **SCSS**  
+![Bootstrap](https://simpleicons.org/icons/bootstrap.svg) **Bootstrap**  
+![Vite](https://vitejs.dev/logo.svg) **Vite**  
+![JavaScript](https://simpleicons.org/icons/javascript.svg) **JavaScript**
 
 ## Getting Started
 
@@ -39,14 +44,6 @@ To get started with this project, simply clone the repository and include the ne
       content="width=device-width, initial-scale=1.0"
     />
     <title>Html Bootstrap Starter</title>
-    <link
-      rel="stylesheet"
-      href="path/to/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="path/to/styles.css"
-    />
     <script
       type="module"
       src="./js/main.js"
@@ -56,23 +53,6 @@ To get started with this project, simply clone the repository and include the ne
     <!-- Your content goes here -->
   </body>
 </html>
-```
-
-## Folder Structure
-
-Here’s the recommended folder structure for the project:
-
-```
-my-project/
-├── src/
-│   ├── js/
-│   │   └── main.js
-│   └── scss/
-│   │   └── styles.scss
-│   └── index.html
-├── package-lock.json
-├── package.json
-└── vite.config.js
 ```
 
 ---
@@ -162,7 +142,7 @@ Here are some examples of how to use the custom utility classes in your HTML:
 - **Background Color**: `ut-bg-{variant}`
 - **Border Color**: `ut-border-{variant}`
 
-### Flexbox
+### Flex-box
 
 - `ut-flex`
 - `ut-flex-row`
@@ -230,19 +210,35 @@ Here are some examples of how to use the custom utility classes in your HTML:
 
 ---
 
-## Customization
+## How to Run the Project
 
-To customize the utility classes, modify the `_globals.scss` file in the `scss` directory. You can add new styles or adjust existing ones to fit your design needs. Use SCSS features like variables, mixins, and nesting to enhance maintainability.
+To run the project, follow these steps:
 
-```scss
-// Example SCSS variable for a primary color
-$primary-color: #3490dc;
+1. Clone the repository:
 
-// Custom utility class example
-.ut-bg-custom {
-  background-color: $primary-color;
-}
-```
+   ```bash
+   git clone https://github.com/your-username/html-bootstrap-starter.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd html-bootstrap-starter
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open your browser and visit `http://localhost:3000`.
 
 ---
 
