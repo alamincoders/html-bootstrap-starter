@@ -232,13 +232,25 @@ To run the project, follow these steps:
    npm install
    ```
 
-4. Start the development server:
+4. Start the development server with the following command, which will also open the application in your default browser:
+
+   ```bash
+   npm run dev
+   ```
+
+   Alternatively, you can start the server without opening the browser:
 
    ```bash
    npm start
    ```
 
-5. Open your browser and visit `http://localhost:3000`.
+5. Open your browser and visit `http://localhost:3000` (or the specified IP address if running on a different host).
+
+6. To build the project for production, use:
+
+   ```bash
+   npm run build
+   ```
 
 ---
 

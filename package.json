@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "vite --host",
+    "dev": "vite --open",
     "build": "vite build"
   },
   "keywords": [],
