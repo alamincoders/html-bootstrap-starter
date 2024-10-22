@@ -24,11 +24,10 @@ Welcome to the HTML Bootstrap Starter project! This template provides a structur
 
 This project is designed to help developers quickly create responsive web applications using:
 
-![HTML](https://simpleicons.org/icons/html5.svg) **HTML**  
-![SCSS](https://simpleicons.org/icons/sass.svg) **SCSS**  
-![Bootstrap](https://simpleicons.org/icons/bootstrap.svg) **Bootstrap**  
-![Vite](https://vitejs.dev/logo.svg) **Vite**  
-![JavaScript](https://simpleicons.org/icons/javascript.svg) **JavaScript**
+![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![css](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![sass](https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## Getting Started
 
